@@ -148,7 +148,10 @@
 
   /* ---------- "Voir mes projets": trembles with an electric charge ---------- */
   @media (prefers-reduced-motion:no-preference){
-    .btn-net:hover,.btn-net:focus-visible{animation:tremble 1.6s linear infinite,charge 1.6s ease-out infinite}
+    .btn:hover,.btn:focus-visible{animation:tremble 1.6s linear infinite,charge 1.6s ease-out infinite}
+    .arrow:hover,.arrow:focus-visible,.to-top:hover,.to-top:focus-visible,.socials a:hover,.socials a:focus-visible,
+    .menu-btn:hover,.menu-btn:focus-visible,.lang button:hover{animation:tremble 1.6s linear infinite,charge-soft 1.6s ease-out infinite}
+    .logo:hover .logo-mark{animation:tremble 1.6s linear infinite}
   }
   @keyframes tremble{
     0%{transform:translate(0,0) rotate(0)}
@@ -159,6 +162,11 @@
     15%{transform:translate(-1px,0) rotate(-.4deg)}
     18%{transform:translate(1px,0) rotate(.3deg)}
     21%,100%{transform:translate(0,0) rotate(0)}
+  }
+  @keyframes charge-soft{
+    0%,100%{box-shadow:0 0 0 0 rgba(var(--accent-rgb),0)}
+    6%{box-shadow:0 0 0 3px rgba(143,211,255,.75),0 0 22px 4px rgba(var(--accent-rgb),.6)}
+    22%{box-shadow:0 0 0 1px rgba(143,211,255,.25),0 0 12px 1px rgba(var(--accent-rgb),.3)}
   }
   @keyframes charge{
     0%{box-shadow:0 8px 24px rgba(var(--accent-rgb),.25)}
@@ -181,8 +189,18 @@
     background:var(--gold-grad);color:#fff;font-size:1.2rem;text-decoration:none;box-shadow:0 10px 26px rgba(var(--accent-rgb),.35);
     opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s}
   .scrolled .to-top{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
-  .to-top:hover{transform:translateY(-3px)}
+
   .menu-open .to-top{opacity:0;visibility:hidden}
+
+
+  /* ---------- Hero typed line ---------- */
+  .typing{display:flex;align-items:center;gap:10px;margin:22px 0 0;min-height:1.6em;font-size:clamp(1rem,1.8vw,1.2rem);font-weight:500;color:var(--gold-hi)}
+  .typing i{font-size:1.3em;color:var(--gold)}
+  .tw{direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+  .caret{width:2px;height:1.15em;background:var(--gold-hi);border-radius:1px}
+  @media (prefers-reduced-motion:no-preference){.caret{animation:blink 1s steps(1) infinite}}
+  @keyframes blink{50%{opacity:0}}
+  .hero-desc{margin-top:22px}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100dvh;display:grid;align-items:center;overflow:hidden;isolation:isolate}
@@ -398,6 +416,7 @@
       <div class="intro">
         <p class="badge"><i class="ph ph-clock" aria-hidden="true"></i><b>2</b><span data-i18n="years_badge">سنوات من الخبرة</span></p>
         <h1><span class="h-first" data-i18n="first">اسمك</span><span class="h-last" data-i18n="last">العائلي</span></h1>
+        <p class="typing" aria-hidden="true"><i class="ph ph-terminal-window"></i><span class="tw" id="tw"></span><span class="caret"></span></p>
         <p class="hero-desc" data-i18n="lead">أصمّم وأبني مواقع وتجارب رقمية أنيقة وسريعة، من الفكرة إلى الإطلاق، بالعربية والفرنسية والإنجليزية.</p>
         <div class="hero-ctas">
           <a class="btn btn-gold btn-net" href="#work" id="netCta"><span data-i18n="work_cta">شاهد أعمالي</span></a>
@@ -541,6 +560,7 @@ const T = {
     skip:"انتقل إلى المحتوى", short:"معاذ", initial:"م", logo_sub:"أنظمة وشبكات",
     nav_home:"الرئيسية", nav_about:"من أنا", nav_work:"مشاريعي", nav_exp:"المسار", nav_contact:"اتصل",
     cta:"تواصل معي", work_cta:"شاهد مشاريعي",
+    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","IDS/IPS, PKI"],
     years_badge:"سنوات تكوين في الأنظمة والشبكات", first:"معاذ", last:"أنظمة وشبكات", full:"معاذ", since:"منذ",
     lead:"تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT، 2026). أُدير الخوادم والشبكات وأؤمّن أنظمة المعلومات.",
     about_eb:"قصتي", about_h:"من أنا",
@@ -567,6 +587,7 @@ const T = {
     skip:"Aller au contenu", short:"Mouad", initial:"M", logo_sub:"Systèmes & Réseaux",
     nav_home:"Accueil", nav_about:"À propos", nav_work:"Projets", nav_exp:"Parcours", nav_contact:"Contact",
     cta:"Me contacter", work_cta:"Voir mes projets",
+    typing:["Windows Server 2019","Cisco : VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux : Apache, dhcpd","Cloud & Virtualisation","Sécurité : IDS/IPS, PKI"],
     years_badge:"ans de formation systèmes et réseaux", first:"Mouad", last:"Systèmes & Réseaux", full:"Mouad", since:"Depuis",
     lead:"Technicien Spécialisé en Infrastructure Digitale, option Systèmes & Réseaux (OFPPT, 2026). J'administre serveurs et réseaux et je sécurise les systèmes d'information.",
     about_eb:"Mon histoire", about_h:"À propos de moi",
@@ -593,6 +614,7 @@ const T = {
     skip:"Skip to content", short:"Mouad", initial:"M", logo_sub:"Systems & Networks",
     nav_home:"Home", nav_about:"About", nav_work:"Projects", nav_exp:"Journey", nav_contact:"Contact",
     cta:"Contact me", work_cta:"View my projects",
+    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","Security: IDS/IPS, PKI"],
     years_badge:"years of systems and network training", first:"Mouad", last:"Systems & Networks", full:"Mouad", since:"Since",
     lead:"Specialised Technician in Digital Infrastructure, Systems & Networks option (OFPPT, 2026). I manage servers and networks and secure information systems.",
     about_eb:"My story", about_h:"About me",
@@ -736,9 +758,28 @@ if (!T[initial]) { try { initial = localStorage.getItem("lang"); } catch(e) {} }
 render(T[initial] ? initial : "ar");
 
 /* Hovering "View my projects" wakes the network in the logo */
-const netCta = $("#netCta");
-["mouseenter","focus"].forEach(ev => netCta.addEventListener(ev, () => document.body.classList.add("net-live")));
-["mouseleave","blur"].forEach(ev => netCta.addEventListener(ev, () => document.body.classList.remove("net-live")));
+$$(".btn").forEach(b => {
+  ["mouseenter","focus"].forEach(ev => b.addEventListener(ev, () => document.body.classList.add("net-live")));
+  ["mouseleave","blur"].forEach(ev => b.addEventListener(ev, () => document.body.classList.remove("net-live")));
+});
+
+/* Typed skills line in the hero */
+(() => {
+  const el = $("#tw");
+  let w = 0, i = 0, del = false, timer;
+  const tick = () => {
+    const words = T[lang].typing, word = words[w % words.length];
+    if (reduce) { el.textContent = word; return; }
+    i += del ? -1 : 1;
+    el.textContent = word.slice(0, i);
+    let wait = del ? 35 : 70;
+    if (!del && i === word.length) { del = true; wait = 1600; }
+    else if (del && i === 0) { del = false; w++; wait = 350; }
+    timer = setTimeout(tick, wait);
+  };
+  tick();
+  $$(".lang button").forEach(b => b.addEventListener("click", () => { clearTimeout(timer); w = 0; i = 0; del = false; tick(); }));
+})();
 
 /* Mobile menu */
 const menuBtn = $(".menu-btn");
