@@ -6,7 +6,7 @@
 <title>معاذ | تقني متخصص في الأنظمة والشبكات</title>
 <meta name="description" content="معاذ (Mouad)، تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT 2026): مشاريع، مهارات، شواهد Cisco وتواصل.">
 <meta name="theme-color" content="#0b1118">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238fd3ff'/%3E%3Cstop offset='1' stop-color='%232f86ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='38' height='38' rx='11' fill='%230f1a26'/%3E%3Cpath d='M11 28V12l9 10 9-10v16' fill='none' stroke='url(%23g)' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg fill='%230f1a26' stroke='url(%23g)' stroke-width='2.2'%3E%3Ccircle cx='11' cy='28' r='2.8'/%3E%3Ccircle cx='11' cy='12' r='2.8'/%3E%3Ccircle cx='20' cy='22' r='2.8'/%3E%3Ccircle cx='29' cy='12' r='2.8'/%3E%3Ccircle cx='29' cy='28' r='2.8'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238fd3ff'/%3E%3Cstop offset='1' stop-color='%232f86ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z' fill='%230f1a26' stroke='url%28%23g%29' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12 27V14l8 8 8-8v13' fill='none' stroke='url%28%23g%29' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='22' r='3' fill='%238fd3ff'/%3E%3C/svg%3E">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mouad","jobTitle":"Technicien Spécialisé Systèmes & Réseaux","url":"https://mouadinfra.github.io/","email":"mailto:damrimouad0@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Azilal","addressCountry":"MA"},"alumniOf":{"@type":"EducationalOrganization","name":"ISTA Azilal (OFPPT)"},"knowsAbout":["Windows Server","Linux","Cisco","Active Directory","Virtualisation","Cloud","Sécurité des systèmes d'information"],"sameAs":["https://www.linkedin.com/in/damrimouad","https://github.com/mouadinfra"]}
 </script>
@@ -69,8 +69,7 @@
   header.solid{background:rgba(11,17,24,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line-d)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .logo-mark{flex:none;width:44px;height:44px;transition:transform .5s var(--ease)}
-  .logo:hover .logo-mark{transform:rotate(-6deg) scale(1.05)}
+  .logo-mark{flex:none;width:44px;height:44px}
   .logo-text{display:grid;line-height:1.1}
   .logo-text b{font-weight:600;font-size:1rem;letter-spacing:.06em}
   [lang="ar"] .logo-text b{letter-spacing:0}
@@ -121,6 +120,30 @@
   .btn-gold{background:var(--gold-grad);color:var(--on-accent);box-shadow:0 8px 24px rgba(var(--accent-rgb),.22)}
   .btn-gold:hover{filter:brightness(1.08);box-shadow:0 10px 30px rgba(var(--accent-rgb),.32)}
   .btn-sm{padding:10px 20px;font-size:.88rem}
+
+
+  /* ---------- Logo + "network comes alive" ---------- */
+  .logo-mark{overflow:visible}
+  .lm-orbit,.lm-pk{opacity:0;stroke-dashoffset:100}
+  .lm-core{transform-box:fill-box;transform-origin:center}
+  .mini-net{width:26px;height:17px;flex:none;overflow:visible}
+  .mn-pk{opacity:0;stroke-dashoffset:100}
+  .mn-core{transform-box:fill-box;transform-origin:center}
+  @media (prefers-reduced-motion:no-preference){
+    .net-live .lm-orbit,.logo:hover .lm-orbit{opacity:1;animation:orbit 2.4s linear infinite}
+    .net-live .lm-pk,.logo:hover .lm-pk{opacity:1;animation:packet 1.3s cubic-bezier(.45,0,.55,1) infinite}
+    .net-live .lm-pk2,.logo:hover .lm-pk2{animation-delay:.65s}
+    .net-live .lm-core,.logo:hover .lm-core{animation:core 1.3s ease-in-out infinite}
+    .net-live .logo-mark{transform:scale(1.08);filter:drop-shadow(0 4px 14px rgba(47,134,255,.55))}
+    .btn-net:hover .mn-pk,.btn-net:focus-visible .mn-pk{opacity:1;animation:packet 1s linear infinite}
+    .btn-net:hover .mn-pk2,.btn-net:focus-visible .mn-pk2{animation-delay:.5s}
+    .btn-net:hover .mn-core,.btn-net:focus-visible .mn-core{animation:core 1s ease-in-out infinite}
+  }
+  .logo-mark{transition:transform .5s var(--ease),filter .5s var(--ease)}
+  .logo:hover .logo-mark{transform:scale(1.06)}
+  @keyframes packet{from{stroke-dashoffset:100}to{stroke-dashoffset:-7}}
+  @keyframes orbit{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+  @keyframes core{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.55}}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100dvh;display:grid;align-items:center;overflow:hidden;isolation:isolate}
@@ -285,25 +308,15 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip">انتقل إلى المحتوى</a>
 
-<!-- Logo: an "M" drawn as a network topology (5 nodes, 4 links) -->
+<!-- Logo: hexagon (network node) holding an "M" drawn as a circuit trace. Packets run along it on hover. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="lg-m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#2f86ff"/></linearGradient>
-  </defs>
-  <symbol id="logo-m" viewBox="0 0 40 40">
-    <rect x="1" y="1" width="38" height="38" rx="11" fill="#0f1a26" stroke="url(#lg-m)" stroke-opacity=".5"/>
-    <path d="M11 28V12l9 10 9-10v16" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <g fill="#0f1a26" stroke="url(#lg-m)" stroke-width="2">
-      <circle cx="11" cy="28" r="2.7"/><circle cx="11" cy="12" r="2.7"/><circle cx="20" cy="22" r="2.7"/><circle cx="29" cy="12" r="2.7"/><circle cx="29" cy="28" r="2.7"/>
-    </g>
-    <circle cx="20" cy="22" r="1.1" fill="#8fd3ff"/>
-  </symbol>
+  <defs><linearGradient id="lg-m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#2f86ff"/></linearGradient></defs>
 </svg>
 
 <header id="hdr">
   <nav class="wrap nav" aria-label="Main">
     <a class="logo" href="#top">
-      <svg class="logo-mark" aria-hidden="true"><use href="#logo-m"/></svg>
+      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg>
       <span class="logo-text"><b data-i18n="short">اسمك</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span>
     </a>
     <ul class="links">
@@ -346,7 +359,7 @@
         <h1><span class="h-first" data-i18n="first">اسمك</span><span class="h-last" data-i18n="last">العائلي</span></h1>
         <p class="hero-desc" data-i18n="lead">أصمّم وأبني مواقع وتجارب رقمية أنيقة وسريعة، من الفكرة إلى الإطلاق، بالعربية والفرنسية والإنجليزية.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold" href="#work" data-i18n="work_cta">شاهد أعمالي</a>
+          <a class="btn btn-gold btn-net" href="#work" id="netCta"><svg class="mini-net" viewBox="0 0 28 18" aria-hidden="true"><path d="M3 9 14 3l11 6-11 6Z M3 9h22 M14 3v12" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4" stroke-linejoin="round"/><path class="mn-pk" d="M3 9 14 3l11 6" pathLength="100" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 88"/><path class="mn-pk mn-pk2" d="M3 9 14 15l11-6" pathLength="100" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 88"/><circle cx="3" cy="9" r="2.2" fill="currentColor"/><circle cx="14" cy="3" r="2.2" fill="currentColor"/><circle cx="25" cy="9" r="2.2" fill="currentColor"/><circle cx="14" cy="15" r="2.2" fill="currentColor"/><circle class="mn-core" cx="14" cy="9" r="1.8" fill="#fff"/></svg><span data-i18n="work_cta">شاهد أعمالي</span></a>
           <a class="btn btn-line" href="#contact" data-i18n="cta">تواصل معي</a>
         </div>
       </div>
@@ -462,7 +475,7 @@
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top"><svg class="logo-mark" aria-hidden="true"><use href="#logo-m"/></svg><span class="logo-text"><b data-i18n="short">اسمك</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span></a>
+    <a class="logo" href="#top"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg><span class="logo-text"><b data-i18n="short">اسمك</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span></a>
     <div class="foot-links">
       <a href="mailto:damrimouad0@gmail.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i>damrimouad0@gmail.com</a>
     </div>
@@ -679,6 +692,11 @@ function render(l){
 let initial = new URLSearchParams(location.search).get("lang");
 if (!T[initial]) { try { initial = localStorage.getItem("lang"); } catch(e) {} }
 render(T[initial] ? initial : "ar");
+
+/* Hovering "View my projects" wakes the network in the logo */
+const netCta = $("#netCta");
+["mouseenter","focus"].forEach(ev => netCta.addEventListener(ev, () => document.body.classList.add("net-live")));
+["mouseleave","blur"].forEach(ev => netCta.addEventListener(ev, () => document.body.classList.remove("net-live")));
 
 /* Mobile menu */
 const menuBtn = $(".menu-btn");
