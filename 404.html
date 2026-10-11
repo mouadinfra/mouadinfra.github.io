@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 | Mouad</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1118">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238fd3ff'/%3E%3Cstop offset='1' stop-color='%232f86ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z' fill='%230f1a26' stroke='url%28%23g%29' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12 27V14l8 8 8-8v13' fill='none' stroke='url%28%23g%29' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='22' r='3' fill='%238fd3ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--dark:#0b1118;--text:#e9f0f7;--muted:#9fb1c4;--gold:#4da3ff;--gold-grad:linear-gradient(135deg,#1a6fe0,#0a4aa8);--text-grad:linear-gradient(135deg,#8fd3ff,#2f86ff);--accent-rgb:47,134,255}
+  *{box-sizing:border-box}
+  html{color-scheme:dark}
+  body{margin:0;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 30%,rgba(var(--accent-rgb),.14),transparent 60%),var(--dark);
+    color:var(--text);font-family:"Poppins","Cairo",system-ui,sans-serif;text-align:center;padding:32px 16px}
+  [lang="ar"] body{font-family:"Cairo","Poppins",system-ui,sans-serif}
+  main{max-width:520px}
+  .mark{width:72px;height:72px;margin:0 auto 26px;display:block}
+  .code{margin:0;font-size:clamp(5rem,22vw,8rem);font-weight:700;line-height:1;letter-spacing:-.02em;background:var(--text-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:"Poppins",sans-serif}
+  .term{display:inline-block;margin:18px 0 0;padding:8px 14px;border-radius:10px;background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.25);
+    color:#bfe6ff;font:500 .9rem ui-monospace,SFMono-Regular,Consolas,monospace;direction:ltr}
+  h1{margin:26px 0 10px;font-size:1.6rem;text-wrap:balance}
+  p{margin:0;color:var(--muted);line-height:1.7}
+  a.btn{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:14px 28px;border-radius:999px;background:var(--gold-grad);color:#fff;text-decoration:none;font-weight:600;
+    box-shadow:0 8px 24px rgba(var(--accent-rgb),.25);transition:filter .3s,box-shadow .3s}
+  a.btn:hover{filter:brightness(1.1);box-shadow:0 10px 30px rgba(var(--accent-rgb),.4)}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion:no-preference){
+    .pk{animation:packet 1.6s linear infinite}
+    .core{transform-box:fill-box;transform-origin:center;animation:core 1.6s ease-in-out infinite}
+  }
+  @keyframes packet{from{stroke-dashoffset:100}to{stroke-dashoffset:-7}}
+  @keyframes core{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.5}}
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#2f86ff"/></linearGradient></defs><path d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#g)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#g)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93" stroke-dashoffset="100"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#g)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#g)" stroke-width="1.8"/><circle class="core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg>
+  <p class="code">404</p>
+  <span class="term" translate="no">ping: destination host unreachable</span>
+  <h1 id="h">هذه الصفحة غير موجودة</h1>
+  <p id="p">الرابط الذي فتحته لا يؤدي إلى أي مكان. ارجع إلى الصفحة الرئيسية.</p>
+  <a class="btn" id="home" href="/">العودة إلى الرئيسية</a>
+</main>
+<script>
+  (function(){
+    var T = {
+      ar:{h:"هذه الصفحة غير موجودة", p:"الرابط الذي فتحته لا يؤدي إلى أي مكان. ارجع إلى الصفحة الرئيسية.", b:"العودة إلى الرئيسية", q:""},
+      fr:{h:"Cette page n'existe pas", p:"Le lien que vous avez suivi ne mène nulle part. Revenez à l'accueil.", b:"Retour à l'accueil", q:"?lang=fr"},
+      en:{h:"This page doesn't exist", p:"The link you followed leads nowhere. Head back to the home page.", b:"Back to home", q:"?lang=en"}
+    }, l = null;
+    try { var s = localStorage.getItem("lang"); if (T[s]) l = s; } catch(e) {}
+    if (!l) { var langs = navigator.languages || [navigator.language || ""]; for (var i = 0; i < langs.length && !l; i++) { var c = String(langs[i]).slice(0, 2).toLowerCase(); if (T[c]) l = c; } }
+    l = l || "en";
+    var t = T[l];
+    document.documentElement.lang = l; document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+    document.getElementById("h").textContent = t.h;
+    document.getElementById("p").textContent = t.p;
+    var a = document.getElementById("home"); a.textContent = t.b; a.href = "/" + t.q;
+  })();
+</script>
+</body>
+</html>

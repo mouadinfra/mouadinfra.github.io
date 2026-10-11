@@ -1,24 +1,55 @@
 <!doctype html>
+<!-- © 2026 Mouad, https://mouadinfra.github.io. All rights reserved. Design, texts and code may not be reused without permission. -->
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>معاذ | تقني متخصص في الأنظمة والشبكات</title>
-<meta name="description" content="معاذ (Mouad)، تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT 2026): مشاريع، مهارات، شواهد Cisco وتواصل.">
+<meta name="description" content="معاذ (Mouad)، تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT 2026): مشاريع، مهارات، تصميم مواقع ويب، شواهد Cisco وتواصل.">
 <meta name="theme-color" content="#0b1118">
+<meta name="author" content="Mouad">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238fd3ff'/%3E%3Cstop offset='1' stop-color='%232f86ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z' fill='%230f1a26' stroke='url%28%23g%29' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12 27V14l8 8 8-8v13' fill='none' stroke='url%28%23g%29' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='22' r='3' fill='%238fd3ff'/%3E%3C/svg%3E">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Mouad","jobTitle":"Technicien Spécialisé Systèmes & Réseaux","url":"https://mouadinfra.github.io/","email":"mailto:damrimouad0@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Azilal","addressCountry":"MA"},"alumniOf":{"@type":"EducationalOrganization","name":"ISTA Azilal (OFPPT)"},"knowsAbout":["Windows Server","Linux","Cisco","Active Directory","Virtualisation","Cloud","Sécurité des systèmes d'information"],"sameAs":["https://www.linkedin.com/in/damrimouad","https://github.com/mouadinfra"]}
+{"@context":"https://schema.org","@type":"Person","name":"Mouad","jobTitle":"Technicien Spécialisé Systèmes & Réseaux","url":"https://mouadinfra.github.io/","email":"mailto:damrimouad0@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Azilal","addressCountry":"MA"},"alumniOf":{"@type":"EducationalOrganization","name":"ISTA Azilal (OFPPT)"},"knowsAbout":["Windows Server","Linux","Cisco","Active Directory","Virtualisation","Cloud","Sécurité des systèmes d'information","Création de sites web"],"sameAs":["https://www.linkedin.com/in/damrimouad","https://github.com/mouadinfra"]}
 </script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mouadinfra.github.io/">
-<link rel="canonical" href="https://mouadinfra.github.io/">
+<link rel="canonical" id="canon" href="https://mouadinfra.github.io/">
 <meta property="og:title" content="Mouad | Systèmes &amp; Réseaux">
 <meta property="og:description" content="Technicien Spécialisé en Infrastructure Digitale, option Systèmes &amp; Réseaux (OFPPT 2026).">
 <meta property="og:image" content="https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=80&w=1200&h=630">
-<link rel="alternate" hreflang="ar" href="https://mouadinfra.github.io/?lang=ar">
+<meta property="og:image:alt" content="Mouad, Systèmes &amp; Réseaux">
+<meta property="og:locale" content="ar_MA">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Each language is its own URL: "/" is Arabic, ?lang=fr and ?lang=en self-canonical -->
+<link rel="alternate" hreflang="ar" href="https://mouadinfra.github.io/">
 <link rel="alternate" hreflang="fr" href="https://mouadinfra.github.io/?lang=fr">
 <link rel="alternate" hreflang="en" href="https://mouadinfra.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://mouadinfra.github.io/">
+<script>
+  /* Pick the language before first paint: ?lang= link > visitor's own choice > device language.
+     Crawlers skip device detection so "/" always stays Arabic for search engines. */
+  (function(){
+    var S = ["ar","fr","en"], q = new URLSearchParams(location.search).get("lang"), l = null;
+    if (S.indexOf(q) > -1) {
+      l = q;
+      if (q !== "ar") document.getElementById("canon").href = "https://mouadinfra.github.io/?lang=" + q;
+    } else {
+      try { var s = localStorage.getItem("lang"); if (S.indexOf(s) > -1) l = s; } catch(e) {}
+      if (!l && !/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) {
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+        for (var i = 0; i < langs.length && !l; i++) { var c = String(langs[i]).slice(0, 2).toLowerCase(); if (S.indexOf(c) > -1) l = c; }
+        if (!l) l = "en";
+      }
+    }
+    l = l || "ar";
+    window.__lang = l;
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -52,7 +83,9 @@
     --font:"Poppins","Cairo",system-ui,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;color-scheme:dark;scroll-padding-top:84px}
+  h1,h2,h3{text-wrap:balance}
+  a,button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(47,134,255,.18)}
   body{margin:0;background:var(--dark);color:var(--text);font-family:var(--font);font-size:1rem;line-height:1.75;-webkit-font-smoothing:antialiased}
   [lang="ar"] body{font-family:"Cairo","Poppins",system-ui,sans-serif;font-size:1.05rem}
   img{display:block;max-width:100%}
@@ -80,10 +113,11 @@
   .links a::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform .35s var(--ease)}
   .links a:hover::after,.links a[aria-current="true"]::after{transform:scaleX(1)}
   .links a[aria-current="true"]{color:var(--gold-hi)}
-  @media (min-width:1000px){.links{display:flex}}
+  @media (min-width:1200px){.links{display:flex}}
   .nav-end{display:flex;align-items:center;gap:12px}
   .lang{display:flex;border:1px solid var(--line-d);border-radius:999px;padding:3px}
-  .lang button{font-size:.78rem;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;padding:7px 11px;border-radius:999px;transition:background .25s,color .25s}
+  .lang button{display:grid;place-items:center;min-width:40px;min-height:40px;font-size:.78rem;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;padding:0 10px;border-radius:999px;transition:background .25s,color .25s}
+  .lang button[data-lang="ar"]{font-family:"Cairo",system-ui,sans-serif;font-size:.95rem}
   .lang button[aria-pressed="true"]{background:var(--accent-solid);color:var(--on-accent)}
   .btn.nav-cta{display:none}
   @media (min-width:640px){.btn.nav-cta{display:inline-flex}}
@@ -96,7 +130,7 @@
   .menu-btn .ph-x{display:none}
   .menu-open .menu-btn .ph-list{display:none}
   .menu-open .menu-btn .ph-x{display:block}
-  @media (min-width:1000px){.menu-btn{display:none}}
+  @media (min-width:1200px){.menu-btn{display:none}}
   .mnav{position:fixed;inset-inline:0;top:76px;z-index:9;background:rgba(11,17,24,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line-d);padding:10px 0 26px;opacity:0;visibility:hidden;transform:translateY(-10px);
     transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s}
@@ -107,7 +141,7 @@
   [dir="rtl"] .mnav li a i{transform:scaleX(-1)}
   .mnav li a.btn{width:100%;margin-top:22px;justify-content:center;padding:15px 26px;font-size:1rem;font-weight:600}
   .menu-open header{background:rgba(11,17,24,.97)}
-  @media (min-width:1000px){.mnav{display:none}}
+  @media (min-width:1200px){.mnav{display:none}}
 
   /* Browser surfaces */
   ::selection{background:rgba(var(--accent-rgb),.38);color:#fff}
@@ -213,7 +247,7 @@
     transition:background .3s,transform .4s var(--ease)}
   .card:hover .card-open,.card:focus-visible .card-open{background:var(--accent-solid);transform:rotate(90deg)}
   .pd{width:min(640px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line-d);border-radius:var(--r-card);
-    background:var(--dark-2);color:var(--text);overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+    background:var(--dark-2);color:var(--text);overflow:auto;overscroll-behavior:contain;box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .pd::backdrop{background:rgba(5,9,14,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   @media (prefers-reduced-motion:no-preference){
     .pd[open]{animation:pd-in .45s var(--ease)}
@@ -221,7 +255,7 @@
   }
   @keyframes pd-in{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
   @keyframes fade-bg{from{opacity:0}to{opacity:1}}
-  .pd-img{width:100%;aspect-ratio:16/8;object-fit:cover;display:block}
+  .pd-img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;display:block}
   .pd-body{padding:26px clamp(20px,4vw,34px) 30px}
   .pd-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 10px;color:var(--gold);font-size:.88rem;font-weight:500}
   .pd-dot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6}
@@ -231,6 +265,8 @@
   .pd-points li::before{content:"";width:8px;height:8px;margin-top:.55em;border-radius:50%;background:var(--gold-grad);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.18)}
   .pd-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
   .pd-tags li{font-size:.82rem;font-weight:500;color:#cfdbe8;background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.25);border-radius:8px;padding:5px 11px;direction:ltr}
+  .pd-link{margin-top:24px}
+  .pd-link[hidden]{display:none}
   .pd-close{position:absolute;top:14px;inset-inline-end:14px;z-index:1;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
     border:1px solid rgba(255,255,255,.3);background:rgba(11,17,24,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-size:1.2rem;cursor:pointer}
   .pd-close:hover{background:var(--accent-solid)}
@@ -298,11 +334,21 @@
   .stat{background:linear-gradient(180deg,var(--card),rgba(21,34,48,.55));border:1px solid var(--line-d);border-radius:var(--r-card);padding:30px 26px;transition:transform .4s var(--ease),border-color .4s}
   .stat:hover{transform:translateY(-4px);border-color:rgba(var(--accent-rgb),.4)}
   .icon-c{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:rgba(var(--accent-rgb),.12);color:var(--gold);font-size:1.45rem}
-  .stat-num{display:block;font-size:clamp(2.8rem,5vw,3.6rem);font-weight:700;line-height:1;margin:24px 0 14px;background:var(--text-grad);-webkit-background-clip:text;background-clip:text;color:transparent;direction:ltr;text-align:left}
+  .stat-num{display:block;font-size:clamp(2.8rem,5vw,3.6rem);font-weight:700;line-height:1;margin:24px 0 14px;background:var(--text-grad);-webkit-background-clip:text;background-clip:text;color:transparent;direction:ltr;text-align:left;font-variant-numeric:tabular-nums}
   [dir="rtl"] .stat-num{text-align:right}
   .stat h3{margin:0;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
   [lang="ar"] .stat h3{letter-spacing:0;font-size:1rem}
   .stat p{margin:8px 0 0;color:var(--muted);font-size:.92rem;line-height:1.6}
+
+  /* ---------- Services ---------- */
+  .svc-grid{display:grid;gap:18px;margin-top:56px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .svc{position:relative;display:flex;flex-direction:column;background:var(--dark);color:var(--text);border:1px solid rgba(var(--accent-rgb),.3);box-shadow:0 18px 40px rgba(11,17,24,.18);border-radius:var(--r-card);padding:30px 26px;
+    transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+  .svc:hover{transform:translateY(-4px);border-color:rgba(var(--accent-rgb),.6);box-shadow:0 22px 48px rgba(11,17,24,.3)}
+  .svc .icon-c{background:var(--gold-grad);color:var(--on-accent)}
+  .svc h3{margin:22px 0 8px;font-size:1.15rem;font-weight:700}
+  .svc p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.7}
+  .svc .btn{align-self:flex-start;margin-top:24px}
 
   /* ---------- Skills (grouped rows, not cards) ---------- */
   .skill-groups{display:grid;gap:0 64px;margin-top:56px}
@@ -313,6 +359,7 @@
   .sg ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
   .sg li{font-size:.85rem;font-weight:500;color:#cfdbe8;background:rgba(var(--accent-rgb),.08);border:1px solid rgba(var(--accent-rgb),.22);border-radius:8px;padding:5px 11px;direction:ltr}
   [lang="ar"] .sg li.loc{direction:rtl}
+  @media (min-width:900px){.sg:last-child:nth-child(odd){grid-column:1 / -1}}
   .sg:hover .icon-c{background:rgba(var(--accent-rgb),.2)}
   .icon-c{transition:background .3s}
 
@@ -410,20 +457,21 @@
   <nav class="wrap nav" aria-label="Main">
     <a class="logo" href="#top">
       <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg>
-      <span class="logo-text"><b data-i18n="short">اسمك</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span>
+      <span class="logo-text"><b data-i18n="short">معاذ</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span>
     </a>
     <ul class="links">
       <li><a href="#about" data-i18n="nav_about">من أنا</a></li>
+      <li><a href="#services" data-i18n="nav_svc">خدماتي</a></li>
       <li><a href="#skills-sec" data-i18n="nav_skills">المهارات</a></li>
-      <li><a href="#work" data-i18n="nav_work">أعمالي</a></li>
+      <li><a href="#work" data-i18n="nav_work">مشاريعي</a></li>
       <li><a href="#experience" data-i18n="nav_exp">المسار</a></li>
       <li><a href="#contact" data-i18n="nav_contact">اتصل</a></li>
     </ul>
     <div class="nav-end">
       <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="ar" aria-pressed="true">ع</button>
-        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="true">ع</button>
+        <button type="button" data-lang="fr" lang="fr" aria-label="Français" aria-pressed="false">FR</button>
+        <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
       </div>
       <a class="btn btn-gold btn-sm nav-cta" href="#contact" data-i18n="cta">تواصل معي</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-label="menu" aria-label="القائمة"><i class="ph ph-list" aria-hidden="true"></i><i class="ph ph-x" aria-hidden="true"></i></button>
@@ -433,8 +481,9 @@
 <div class="mnav" id="mnav">
   <ul class="wrap">
     <li><a href="#about"><span data-i18n="nav_about">من أنا</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+    <li><a href="#services"><span data-i18n="nav_svc">خدماتي</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
     <li><a href="#skills-sec"><span data-i18n="nav_skills">المهارات</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-    <li><a href="#work"><span data-i18n="nav_work">أعمالي</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+    <li><a href="#work"><span data-i18n="nav_work">مشاريعي</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
     <li><a href="#experience"><span data-i18n="nav_exp">المسار</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
     <li><a href="#contact"><span data-i18n="nav_contact">اتصل</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
     <li style="border:0"><a class="btn btn-gold" href="#contact" style="border:0" data-i18n="cta">تواصل معي</a></li>
@@ -446,16 +495,19 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <!-- صورة الخلفية: ضع صورة خاصة بك هنا (1920x1080) -->
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=80&w=1920&h=1080" alt="" fetchpriority="high">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=80&w=1920&h=1080"
+      srcset="https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=70&w=800&h=1300 800w,
+              https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=80&w=1920&h=1080 1920w"
+      sizes="100vw" alt="" fetchpriority="high">
     <canvas class="net-bg" id="netBg" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
       <div class="intro">
-        <p class="badge"><i class="ph ph-clock" aria-hidden="true"></i><b>2</b><span data-i18n="years_badge">سنوات من الخبرة</span></p>
-        <h1><span class="h-first" data-i18n="first">اسمك</span><span class="h-last" data-i18n="last">العائلي</span></h1>
-        <p class="typing" aria-hidden="true"><i class="ph ph-terminal-window"></i><span class="tw" id="tw"></span><span class="caret"></span></p>
-        <p class="hero-desc" data-i18n="lead">أصمّم وأبني مواقع وتجارب رقمية أنيقة وسريعة، من الفكرة إلى الإطلاق، بالعربية والفرنسية والإنجليزية.</p>
+        <p class="badge"><i class="ph ph-clock" aria-hidden="true"></i><b>2</b><span data-i18n="years_badge">سنوات تكوين في الأنظمة والشبكات</span></p>
+        <h1><span class="h-first" data-i18n="first" translate="no">معاذ</span><span class="h-last" data-i18n="last">أنظمة وشبكات</span></h1>
+        <p class="typing" aria-hidden="true"><i class="ph ph-terminal-window"></i><span class="tw" id="tw" translate="no"></span><span class="caret"></span></p>
+        <p class="hero-desc" data-i18n="lead">تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT، 2026). أُدير الخوادم والشبكات، أؤمّن أنظمة المعلومات، وأصمّم مواقع ويب.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold btn-net" href="#work" id="netCta"><span data-i18n="work_cta">شاهد أعمالي</span></a>
+          <a class="btn btn-gold btn-net" href="#work" id="netCta"><span data-i18n="work_cta">شاهد مشاريعي</span></a>
           <a class="btn btn-line" href="#contact" data-i18n="cta">تواصل معي</a>
         </div>
       </div>
@@ -473,7 +525,7 @@
     <div class="about-text reveal">
       <p class="eyebrow start" data-i18n="about_eb">قصتي</p>
       <h2 id="about-h" data-i18n="about_h">من أنا</h2>
-      <p data-i18n="about_p">اكتب هنا فقرة قصيرة تعرّف بك: من أنت، ماذا تفعل، ولمن تعمل، وما الذي يميّز طريقتك في العمل.</p>
+      <p data-i18n="about_p">خرّيج ISTA أزيلال (OFPPT) في البنية التحتية الرقمية، خيار الأنظمة والشبكات. أطمح لمتابعة دراستي في سلك Bachelor لتوجيه مساري نحو المعلوميات والذكاء الاصطناعي واستغلال البيانات، معتمدًا على كفاءاتي في الأنظمة والشبكات والسحابة والأمن. أصمّم وأنشر أيضًا مواقع ويب عصرية متعددة اللغات، مثل هذا الموقع. جاد، فضولي، مستقل، وأحب العمل ضمن فريق.</p>
       <ul class="skills" id="skills"></ul>
       <a class="btn btn-gold" href="#experience" data-i18n="about_cta">اكتشف مساري</a>
     </div>
@@ -484,10 +536,22 @@
     <div class="wrap">
       <div class="center reveal">
         <p class="eyebrow" data-i18n="stats_eb">بالأرقام</p>
-        <h2 id="stats-h" data-i18n="stats_h">مسيرتي في أرقام</h2>
+        <h2 id="stats-h" data-i18n="stats_h">مساري في أرقام</h2>
         <div class="rule"></div>
       </div>
       <div class="stat-grid" id="stats"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec sec-light" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="center reveal">
+        <p class="eyebrow" data-i18n="svc_eb">خدماتي</p>
+        <h2 id="svc-h" data-i18n="svc_h">ما يمكنني تقديمه</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="svc-grid reveal" id="svcGrid"></div>
     </div>
   </section>
 
@@ -507,10 +571,10 @@
   <section class="sec sec-light" id="work" aria-labelledby="work-h">
     <div class="wrap">
       <div class="center reveal">
-        <p class="eyebrow" data-i18n="work_eb">أعمالي</p>
-        <h2 id="work-h" data-i18n="work_h">مشاريع مختارة</h2>
+        <p class="eyebrow" data-i18n="work_eb">مشاريعي</p>
+        <h2 id="work-h" data-i18n="work_h">مشاريع ومختبرات</h2>
         <div class="rule"></div>
-        <p class="sec-intro" data-i18n="work_p">مجموعة من المشاريع التي صمّمتها ونفّذتها لعملاء في مجالات مختلفة.</p>
+        <p class="sec-intro" data-i18n="work_p">مختبرات أنجزتها في بيئات افتراضية (VirtualBox، VMware، Packet Tracer) خلال التكوين، ومشروع تدريب نهاية التكوين، وهذا الموقع.</p>
       </div>
       <div class="carousel">
         <div class="track" id="track" tabindex="0" aria-label="Projects"></div>
@@ -526,13 +590,13 @@
   <section class="sec sec-dark-2" id="experience" aria-labelledby="exp-h">
     <div class="wrap">
       <div class="center reveal">
-        <p class="eyebrow" data-i18n="exp_eb">المسار المهني</p>
-        <h2 id="exp-h" data-i18n="exp_h">خبراتي وتكويني</h2>
+        <p class="eyebrow" data-i18n="exp_eb">المسار</p>
+        <h2 id="exp-h" data-i18n="exp_h">تكويني وخبرتي</h2>
         <div class="rule"></div>
       </div>
       <ol class="timeline reveal" id="timeline"></ol>
       <h3 class="certs-h reveal" data-i18n="certs_h">الشواهد</h3>
-      <ul class="certs reveal" id="certs"></ul>
+      <ul class="certs reveal" id="certs" translate="no"></ul>
     </div>
   </section>
 
@@ -541,9 +605,9 @@
     <div class="wrap">
       <div class="center reveal">
         <p class="eyebrow" data-i18n="contact_eb">تواصل معي</p>
-        <h2 id="contact-h" data-i18n="contact_h">لنتعاون معًا</h2>
+        <h2 id="contact-h" data-i18n="contact_h">لنعمل معًا</h2>
         <div class="rule"></div>
-        <p class="sec-intro" data-i18n="contact_p">لديك مشروع أو فرصة عمل؟ أرسل لي رسالة وسأرد خلال يومين.</p>
+        <p class="sec-intro" data-i18n="contact_p">لديك فرصة تدريب أو عمل أو دراسة، أو تحتاج موقع ويب؟ راسلني وسأرد في أقرب وقت.</p>
       </div>
       <!-- غيّر معلومات التواصل هنا -->
       <div class="info reveal">
@@ -554,11 +618,11 @@
       <div class="contact-grid">
         <div class="contact-visual reveal">
           <img src="https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?auto=format&fit=crop&q=80&w=900&h=900" alt="" loading="lazy">
-          <blockquote data-i18n="quote">كل مشروع جيد يبدأ بمحادثة بسيطة.</blockquote>
+          <blockquote data-i18n="quote">شبكة مستقرة وآمنة هي أساس كل عمل رقمي.</blockquote>
         </div>
         <form id="form" class="reveal" novalidate>
           <div class="field half"><label for="f-name" data-i18n="l_name">الاسم الكامل</label><input id="f-name" name="name" required autocomplete="name"><span class="err" aria-live="polite"></span></div>
-          <div class="field half"><label for="f-email" data-i18n="l_email">البريد الإلكتروني</label><input id="f-email" name="email" type="email" required autocomplete="email" placeholder="name@mail.com" dir="ltr"><span class="err" aria-live="polite"></span></div>
+          <div class="field half"><label for="f-email" data-i18n="l_email">البريد الإلكتروني</label><input id="f-email" name="email" type="email" required autocomplete="email" spellcheck="false" placeholder="name@mail.com" dir="ltr"><span class="err" aria-live="polite"></span></div>
           <div class="field"><label for="f-subject" data-i18n="l_subject">الموضوع</label><input id="f-subject" name="subject"><span class="err"></span></div>
           <div class="field"><label for="f-msg" data-i18n="l_msg">الرسالة</label><textarea id="f-msg" name="message" required></textarea><span class="err" aria-live="polite"></span></div>
           <button class="btn btn-gold" type="submit"><i class="ph ph-paper-plane-tilt" aria-hidden="true"></i><span data-i18n="send">إرسال الرسالة</span></button>
@@ -571,7 +635,7 @@
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg><span class="logo-text"><b data-i18n="short">اسمك</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span></a>
+    <a class="logo" href="#top"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg><span class="logo-text"><b data-i18n="short">معاذ</b><small data-i18n="logo_sub">أنظمة وشبكات</small></span></a>
     <div class="foot-links">
       <a href="mailto:damrimouad0@gmail.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i>damrimouad0@gmail.com</a>
     </div>
@@ -579,17 +643,18 @@
       <a href="https://www.linkedin.com/in/damrimouad" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
       <a href="https://github.com/mouadinfra" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
     </div>
-    <p class="copy">© <span id="year"></span> <span data-i18n="full">اسمك العائلي</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></p>
+    <p class="copy">© <span id="year">2026</span> <span data-i18n="full">معاذ</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></p>
   </div>
 </footer>
 <dialog class="pd" id="pd" aria-labelledby="pd-title">
   <button type="button" class="pd-close" id="pdClose" data-i18n-label="close" aria-label="إغلاق"><i class="ph ph-x" aria-hidden="true"></i></button>
-  <img class="pd-img" id="pdImg" src="" alt="">
+  <img class="pd-img" id="pdImg" alt="" width="1200" height="600">
   <div class="pd-body">
     <p class="pd-meta"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span id="pdYear"></span><span class="pd-dot"></span><span id="pdWhere"></span></p>
     <h3 id="pd-title"></h3>
     <ul class="pd-points" id="pdPoints"></ul>
-    <ul class="pd-tags" id="pdTags"></ul>
+    <ul class="pd-tags" id="pdTags" translate="no"></ul>
+    <a class="btn btn-gold btn-sm pd-link" id="pdLink" href="#" target="_blank" rel="noopener" hidden><i class="ph ph-github-logo" aria-hidden="true"></i><span data-i18n="view_code">شاهد الكود على GitHub</span></a>
   </div>
 </dialog>
 
@@ -604,82 +669,91 @@ const EMAIL = "damrimouad0@gmail.com";
 const T = {
   ar:{
     dir:"rtl", title:"معاذ | تقني متخصص في الأنظمة والشبكات",
+    desc:"معاذ (Mouad)، تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT 2026): مشاريع، مهارات، تصميم مواقع ويب، شواهد Cisco وتواصل.",
     skip:"انتقل إلى المحتوى", short:"معاذ", initial:"م", logo_sub:"أنظمة وشبكات",
     nav_home:"الرئيسية", nav_about:"من أنا", nav_work:"مشاريعي", nav_exp:"المسار", nav_contact:"اتصل",
     cta:"تواصل معي", work_cta:"شاهد مشاريعي",
-    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","IDS/IPS, PKI"],
-    close:"إغلاق", years_badge:"سنوات تكوين في الأنظمة والشبكات", first:"معاذ", last:"أنظمة وشبكات", full:"معاذ", since:"منذ",
-    lead:"تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT، 2026). أُدير الخوادم والشبكات وأؤمّن أنظمة المعلومات.",
+    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","IDS/IPS, PKI","مواقع ويب عصرية"],
+    close:"إغلاق", view_code:"شاهد الكود على GitHub", years_badge:"سنوات تكوين في الأنظمة والشبكات", first:"معاذ", last:"أنظمة وشبكات", full:"معاذ", since:"منذ",
+    lead:"تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT، 2026). أُدير الخوادم والشبكات، أؤمّن أنظمة المعلومات، وأصمّم مواقع ويب.",
     about_eb:"قصتي", about_h:"من أنا",
-    about_p:"خرّيج ISTA أزيلال (OFPPT) في البنية التحتية الرقمية، خيار الأنظمة والشبكات. أطمح لمتابعة دراستي في سلك Bachelor لتوجيه مساري نحو المعلوميات والذكاء الاصطناعي واستغلال البيانات، معتمدًا على كفاءاتي في الأنظمة والشبكات والسحابة والأمن. جاد، فضولي، مستقل، وأحب العمل ضمن فريق.",
+    about_p:"خرّيج ISTA أزيلال (OFPPT) في البنية التحتية الرقمية، خيار الأنظمة والشبكات. أطمح لمتابعة دراستي في سلك Bachelor لتوجيه مساري نحو المعلوميات والذكاء الاصطناعي واستغلال البيانات، معتمدًا على كفاءاتي في الأنظمة والشبكات والسحابة والأمن. أصمّم وأنشر أيضًا مواقع ويب عصرية متعددة اللغات، مثل هذا الموقع. جاد، فضولي، مستقل، وأحب العمل ضمن فريق.",
     about_cta:"اكتشف مساري",
     stats_eb:"بالأرقام", stats_h:"مساري في أرقام",
-    work_eb:"مشاريعي", work_h:"مشاريع ومختبرات", work_p:"مختبرات أنجزتها في بيئات افتراضية (VirtualBox، VMware، Packet Tracer) خلال التكوين، ومشروع تدريب نهاية التكوين.",
+    work_eb:"مشاريعي", work_h:"مشاريع ومختبرات", work_p:"مختبرات أنجزتها في بيئات افتراضية (VirtualBox، VMware، Packet Tracer) خلال التكوين، ومشروع تدريب نهاية التكوين، وهذا الموقع.",
     prev:"السابق", next:"التالي",
     exp_eb:"المسار", exp_h:"تكويني وخبرتي",
     certs_h:"الشواهد",
-    contact_eb:"تواصل معي", contact_h:"لنعمل معًا", contact_p:"لديك فرصة تدريب أو عمل أو دراسة؟ راسلني وسأرد في أقرب وقت.",
+    contact_eb:"تواصل معي", contact_h:"لنعمل معًا", contact_p:"لديك فرصة تدريب أو عمل أو دراسة، أو تحتاج موقع ويب؟ راسلني وسأرد في أقرب وقت.",
     city:"أزيلال، المغرب",
     quote:"شبكة مستقرة وآمنة هي أساس كل عمل رقمي.",
     l_name:"الاسم الكامل", l_email:"البريد الإلكتروني", l_subject:"الموضوع", l_msg:"الرسالة",
     send:"إرسال الرسالة", form_note:"سيفتح تطبيق البريد لديك والرسالة جاهزة للإرسال.",
     e_req:"هذا الحقل مطلوب.", e_mail:"أدخل بريدًا إلكترونيًا صحيحًا، مثل name@mail.com",
     rights:"جميع الحقوق محفوظة.",
-    nav_skills:"المهارات", skills_eb:"الكفاءات", skills_h:"مهاراتي التقنية", menu:"القائمة",
+    nav_svc:"خدماتي", svc_subject:"طلب موقع ويب", svc_eb:"خدماتي", svc_h:"ما يمكنني تقديمه", svc_cta:"اطلب موقعك",
+    svc:[["الشبكات والأنظمة","تركيب وإعداد الشبكات، خوادم Windows و Linux، و Active Directory."],["أمن المعلومات","تأمين أنظمة المعلومات وحماية البيانات الحساسة."],["مواقع ويب","مواقع عصرية وسريعة بعدة لغات، من التصميم إلى النشر على الإنترنت."]],
+    nav_skills:"المهارات", skills_eb:"الكفاءات", skills_h:"مهاراتي التقنية", menu:"القائمة", top:"العودة للأعلى",
     langs:["العربية: اللغة الأم","الفرنسية: B1","الإنجليزية: تقنية"],
     stats:[["سنوات تكوين","ISTA أزيلال، OFPPT"],["معدل السنة الثانية","دبلوم تقني متخصص"],["أمن نظم المعلومات","أعلى نقطة في الوحدات"],["شواهد Cisco","Networking Academy"]]
   },
   fr:{
     dir:"ltr", title:"Mouad | Technicien Spécialisé Systèmes & Réseaux",
+    desc:"Mouad, Technicien Spécialisé en Infrastructure Digitale, option Systèmes & Réseaux (OFPPT 2026) : projets, compétences, création de sites web, certifications Cisco et contact.",
     skip:"Aller au contenu", short:"Mouad", initial:"M", logo_sub:"Systèmes & Réseaux",
     nav_home:"Accueil", nav_about:"À propos", nav_work:"Projets", nav_exp:"Parcours", nav_contact:"Contact",
     cta:"Me contacter", work_cta:"Voir mes projets",
-    typing:["Windows Server 2019","Cisco : VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux : Apache, dhcpd","Cloud & Virtualisation","Sécurité : IDS/IPS, PKI"],
-    close:"Fermer", years_badge:"ans de formation systèmes et réseaux", first:"Mouad", last:"Systèmes & Réseaux", full:"Mouad", since:"Depuis",
-    lead:"Technicien Spécialisé en Infrastructure Digitale, option Systèmes & Réseaux (OFPPT, 2026). J'administre serveurs et réseaux et je sécurise les systèmes d'information.",
+    typing:["Windows Server 2019","Cisco : VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux : Apache, dhcpd","Cloud & Virtualisation","Sécurité : IDS/IPS, PKI","Création de sites web"],
+    close:"Fermer", view_code:"Voir le code sur GitHub", years_badge:"ans de formation systèmes et réseaux", first:"Mouad", last:"Systèmes & Réseaux", full:"Mouad", since:"Depuis",
+    lead:"Technicien Spécialisé en Infrastructure Digitale, option Systèmes & Réseaux (OFPPT, 2026). J'administre serveurs et réseaux, je sécurise les systèmes d'information et je crée des sites web.",
     about_eb:"Mon histoire", about_h:"À propos de moi",
-    about_p:"Diplômé de l'ISTA Azilal (OFPPT) en Infrastructure Digitale, option Systèmes & Réseaux. Je souhaite poursuivre en Bachelor pour orienter mon parcours vers l'informatique, l'intelligence artificielle et l'exploitation des données, en m'appuyant sur mes compétences en systèmes, réseaux, Cloud et sécurité. Sérieux, curieux, autonome, avec le sens du travail en équipe.",
+    about_p:"Diplômé de l'ISTA Azilal (OFPPT) en Infrastructure Digitale, option Systèmes & Réseaux. Je souhaite poursuivre en Bachelor pour orienter mon parcours vers l'informatique, l'intelligence artificielle et l'exploitation des données, en m'appuyant sur mes compétences en systèmes, réseaux, Cloud et sécurité. Je conçois et mets en ligne aussi des sites web modernes et multilingues, comme celui-ci. Sérieux, curieux, autonome, avec le sens du travail en équipe.",
     about_cta:"Découvrir mon parcours",
     stats_eb:"En chiffres", stats_h:"Mon parcours en chiffres",
-    work_eb:"Projets", work_h:"Projets et labs", work_p:"Des labs réalisés en environnement virtuel (VirtualBox, VMware, Packet Tracer) pendant ma formation, et le projet de mon stage de fin d'études.",
+    work_eb:"Projets", work_h:"Projets et labs", work_p:"Des labs réalisés en environnement virtuel (VirtualBox, VMware, Packet Tracer) pendant ma formation, le projet de mon stage de fin d'études et ce site web.",
     prev:"Précédent", next:"Suivant",
     exp_eb:"Parcours", exp_h:"Formation et expérience",
     certs_h:"Certifications",
-    contact_eb:"Contactez-moi", contact_h:"Travaillons ensemble", contact_p:"Une opportunité de stage, d'emploi ou d'études ? Écrivez-moi, je vous réponds rapidement.",
+    contact_eb:"Contactez-moi", contact_h:"Travaillons ensemble", contact_p:"Une opportunité de stage, d'emploi ou d'études, ou besoin d'un site web ? Écrivez-moi, je vous réponds rapidement.",
     city:"Azilal, Maroc",
     quote:"Un réseau stable et sécurisé est la base de toute activité numérique.",
     l_name:"Nom complet", l_email:"Email", l_subject:"Objet", l_msg:"Message",
     send:"Envoyer le message", form_note:"Votre application mail s'ouvrira avec le message prêt à envoyer.",
     e_req:"Ce champ est obligatoire.", e_mail:"Entrez un email valide, par ex. name@mail.com",
     rights:"Tous droits réservés.",
-    nav_skills:"Compétences", skills_eb:"Compétences", skills_h:"Mes compétences techniques", menu:"Menu",
+    nav_svc:"Services", svc_subject:"Demande de site web", svc_eb:"Services", svc_h:"Ce que je peux faire pour vous", svc_cta:"Demander un site",
+    svc:[["Réseaux & systèmes","Installation et configuration de réseaux, serveurs Windows et Linux, Active Directory."],["Sécurité des SI","Sécurisation des systèmes d'information et protection des données sensibles."],["Sites web","Des sites modernes, rapides et multilingues, de la conception à la mise en ligne."]],
+    nav_skills:"Compétences", skills_eb:"Compétences", skills_h:"Mes compétences techniques", menu:"Menu", top:"Retour en haut",
     langs:["Arabe : langue maternelle","Français : B1","Anglais : technique"],
     stats:[["Années de formation","ISTA Azilal, OFPPT"],["Moyenne 2e année","Diplôme de Technicien Spécialisé"],["Sécurité des SI","Meilleure note des modules"],["Certifications Cisco","Networking Academy"]]
   },
   en:{
     dir:"ltr", title:"Mouad | Systems & Network Technician",
+    desc:"Mouad, Specialised Technician in Digital Infrastructure, Systems & Networks (OFPPT 2026): projects, skills, web design, Cisco certifications and contact.",
     skip:"Skip to content", short:"Mouad", initial:"M", logo_sub:"Systems & Networks",
     nav_home:"Home", nav_about:"About", nav_work:"Projects", nav_exp:"Journey", nav_contact:"Contact",
     cta:"Contact me", work_cta:"View my projects",
-    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","Security: IDS/IPS, PKI"],
-    close:"Close", years_badge:"years of systems and network training", first:"Mouad", last:"Systems & Networks", full:"Mouad", since:"Since",
-    lead:"Specialised Technician in Digital Infrastructure, Systems & Networks option (OFPPT, 2026). I manage servers and networks and secure information systems.",
+    typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","Security: IDS/IPS, PKI","Modern websites"],
+    close:"Close", view_code:"View the code on GitHub", years_badge:"years of systems and network training", first:"Mouad", last:"Systems & Networks", full:"Mouad", since:"Since",
+    lead:"Specialised Technician in Digital Infrastructure, Systems & Networks option (OFPPT, 2026). I manage servers and networks, secure information systems and build websites.",
     about_eb:"My story", about_h:"About me",
-    about_p:"Graduate of ISTA Azilal (OFPPT) in Digital Infrastructure, Systems & Networks option. I plan to continue with a Bachelor's degree to move toward computer science, artificial intelligence and data, building on my skills in systems, networks, Cloud and security. Serious, curious, autonomous and a good team player.",
+    about_p:"Graduate of ISTA Azilal (OFPPT) in Digital Infrastructure, Systems & Networks option. I plan to continue with a Bachelor's degree to move toward computer science, artificial intelligence and data, building on my skills in systems, networks, Cloud and security. I also design and publish modern, multilingual websites, like this one. Serious, curious, autonomous and a good team player.",
     about_cta:"See my journey",
     stats_eb:"By the numbers", stats_h:"My journey in numbers",
-    work_eb:"Projects", work_h:"Projects and labs", work_p:"Labs built in virtual environments (VirtualBox, VMware, Packet Tracer) during my training, plus my final internship project.",
+    work_eb:"Projects", work_h:"Projects and labs", work_p:"Labs built in virtual environments (VirtualBox, VMware, Packet Tracer) during my training, my final internship project and this website.",
     prev:"Previous", next:"Next",
     exp_eb:"Journey", exp_h:"Education and experience",
     certs_h:"Certifications",
-    contact_eb:"Get in touch", contact_h:"Let's work together", contact_p:"Have an internship, job or study opportunity? Write to me and I'll get back to you quickly.",
+    contact_eb:"Get in touch", contact_h:"Let's work together", contact_p:"Have an internship, job or study opportunity, or need a website? Write to me and I'll get back to you quickly.",
     city:"Azilal, Morocco",
     quote:"A stable, secure network is the foundation of every digital business.",
     l_name:"Full name", l_email:"Email", l_subject:"Subject", l_msg:"Message",
     send:"Send message", form_note:"Your email app will open with the message ready to send.",
     e_req:"This field is required.", e_mail:"Enter a valid email, e.g. name@mail.com",
     rights:"All rights reserved.",
-    nav_skills:"Skills", skills_eb:"Skills", skills_h:"My technical skills", menu:"Menu",
+    nav_svc:"Services", svc_subject:"Website request", svc_eb:"Services", svc_h:"What I can do for you", svc_cta:"Request a website",
+    svc:[["Networks & systems","Setting up networks, Windows and Linux servers, and Active Directory."],["Information security","Securing information systems and protecting sensitive data."],["Websites","Modern, fast, multilingual websites, from design to going live."]],
+    nav_skills:"Skills", skills_eb:"Skills", skills_h:"My technical skills", menu:"Menu", top:"Back to top",
     langs:["Arabic: native","French: B1","English: technical"],
     stats:[["Years of training","ISTA Azilal, OFPPT"],["2nd-year average","Specialised Technician diploma"],["Information security","Top module grade"],["Cisco certifications","Networking Academy"]]
   }
@@ -710,7 +784,11 @@ const PROJECTS = [
   { img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=800", url:"#",
     ar:["تأمين نظام معلومات","مصلحة الموارد البشرية، المديرية الإقليمية للتعليم بأزيلال"],
     fr:["Sécurisation d'un SI","Service RH, Direction Provinciale de l'Éducation, Azilal"],
-    en:["Securing an information system","HR department, Provincial Education Directorate, Azilal"] }
+    en:["Securing an information system","HR department, Provincial Education Directorate, Azilal"] },
+  { img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=800", url:"https://github.com/mouadinfra/mouadinfra.github.io",
+    ar:["هذا الموقع","موقع شخصي عصري بثلاث لغات، سريع ويعمل على كل الأجهزة"],
+    fr:["Ce site web","Portfolio moderne et trilingue, rapide, sur tous les écrans"],
+    en:["This website","Modern trilingual portfolio, fast on every screen"] }
 ];
 
 /* تفاصيل المشاريع (من الـ CV) */
@@ -718,7 +796,7 @@ const DETAILS = [
   { year:"2024 - 2025", tags:["Windows Server 2019","VirtualBox","AD DS","DNS","DHCP","GPO","PowerShell"],
     where:{ ar:"مختبر افتراضي، ISTA أزيلال", fr:"Lab virtuel, ISTA Azilal", en:"Virtual lab, ISTA Azilal" },
     points:{
-      ar:["تثبيت وحدة تحكم في النطاق DC01 للنطاق ofppt.local على VirtualBox.","إعداد خدمات AD DS وDNS وDHCP.","تنظيم المستخدمين في وحدات تنظيمية (OU) وتطبيق سياسات المجموعة (GPO).","أتمتة مهام الإدارة بسكريبتات PowerShell."],
+      ar:["تثبيت وحدة تحكم في النطاق DC01 للنطاق ofppt.local على VirtualBox.","إعداد خدمات AD DS و DNS و DHCP.","تنظيم المستخدمين في وحدات تنظيمية (OU) وتطبيق سياسات المجموعة (GPO).","أتمتة مهام الإدارة بسكريبتات PowerShell."],
       fr:["Installation du contrôleur de domaine DC01 (ofppt.local) sous VirtualBox.","Configuration des services AD DS, DNS et DHCP.","Organisation des utilisateurs en OUs et application de GPO.","Automatisation des tâches d'administration avec des scripts PowerShell."],
       en:["Installed the DC01 domain controller (ofppt.local) on VirtualBox.","Configured AD DS, DNS and DHCP services.","Organised users into OUs and applied Group Policies (GPO).","Automated administration tasks with PowerShell scripts."] } },
   { year:"2024 - 2025", tags:["Cisco","VLAN","Inter-VLAN","OSPF","STP","NAT/PAT"],
@@ -730,7 +808,7 @@ const DETAILS = [
   { year:"2025", tags:["RHEL/CentOS","dhcpd","Apache (httpd)","VirtualHost","nmcli","systemctl","firewall-cmd"],
     where:{ ar:"مختبر افتراضي", fr:"Lab virtuel", en:"Virtual lab" },
     points:{
-      ar:["إعداد خادم DHCP مع حجوزات حسب عنوان MAC.","نشر خادم ويب Apache مع عدة VirtualHost.","إدارة الشبكة والخدمات والجدار الناري بأدوات nmcli وsystemctl وfirewall-cmd."],
+      ar:["إعداد خادم DHCP مع حجوزات حسب عنوان MAC.","نشر خادم ويب Apache مع عدة VirtualHost.","إدارة الشبكة والخدمات والجدار الناري بأدوات nmcli و systemctl و firewall-cmd."],
       fr:["Serveur DHCP avec réservations par adresse MAC.","Serveur web Apache avec plusieurs VirtualHost.","Gestion du réseau, des services et du pare-feu avec nmcli, systemctl et firewall-cmd."],
       en:["DHCP server with MAC-address reservations.","Apache web server with several VirtualHosts.","Managed networking, services and firewall with nmcli, systemctl and firewall-cmd."] } },
   { year:"2026", tags:["Sécurité des SI","Données sensibles","Analyse des besoins"],
@@ -738,7 +816,13 @@ const DETAILS = [
     points:{
       ar:["تأمين نظام المعلومات لمصلحة الموارد البشرية.","العمل على بيانات حساسة مع احترام قواعد السرية.","مراعاة الحاجيات الفعلية للمستخدمين في الحلول المقترحة."],
       fr:["Sécurisation du système d'information d'un service RH.","Travail sur des données sensibles dans le respect de la confidentialité.","Prise en compte des besoins réels des utilisateurs dans les solutions proposées."],
-      en:["Secured the information system of an HR department.","Worked with sensitive data while respecting confidentiality.","Took real user needs into account in the proposed solutions."] } }
+      en:["Secured the information system of an HR department.","Worked with sensitive data while respecting confidentiality.","Took real user needs into account in the proposed solutions."] } },
+  { year:"2026", tags:["Web design","Responsive","AR / FR / EN","SEO","GitHub Pages"],
+    where:{ ar:"مشروع شخصي، منشور على الإنترنت", fr:"Projet personnel, en ligne", en:"Personal project, live" },
+    points:{
+      ar:["تصميم موقع شخصي عصري يقدّم مساري ومشاريعي بشكل واضح.","ثلاث لغات، تُختار تلقائيًا حسب لغة الزائر.","يعمل بسلاسة على الهاتف والحاسوب، مع حركات خفيفة.","سريع، محسّن لمحركات البحث، ومنشور على الإنترنت."],
+      fr:["Conception d'un portfolio moderne qui présente clairement mon parcours et mes projets.","Trois langues, choisies automatiquement selon la langue du visiteur.","Fluide sur mobile et ordinateur, avec des animations légères.","Rapide, optimisé pour le référencement et en ligne."],
+      en:["Designed a modern portfolio that presents my journey and projects clearly.","Three languages, picked automatically from the visitor's language.","Smooth on phone and desktop, with light animations.","Fast, search-engine optimised and live online."] } }
 ];
 
 const EXPERIENCE = [
@@ -781,7 +865,11 @@ const SKILL_GROUPS = [
   { icon:"ph-terminal-window", ar:"البرمجة والسكريبت", fr:"Programmation & scripts", en:"Programming & scripting",
     items:{ ar:["PowerShell","Bash","Python (تعلّم ذاتي)","SQL (تعلّم ذاتي)"],
             fr:["PowerShell","Bash","Python (autoformation)","SQL (autoformation)"],
-            en:["PowerShell","Bash","Python (self-taught)","SQL (self-taught)"] } }
+            en:["PowerShell","Bash","Python (self-taught)","SQL (self-taught)"] } },
+  { icon:"ph-browsers", ar:"تصميم وتطوير المواقع", fr:"Création de sites web", en:"Web design & development",
+    items:{ ar:["مواقع تعريفية","Portfolio","تصميم متجاوب","مواقع متعددة اللغات","SEO","النشر على الإنترنت"],
+            fr:["Sites vitrines","Portfolios","Responsive design","Sites multilingues","SEO","Mise en ligne"],
+            en:["Showcase websites","Portfolios","Responsive design","Multilingual sites","SEO","Publishing online"] } }
 ];
 
 /* ========================================================= */
@@ -800,13 +888,23 @@ function render(l){
   document.documentElement.lang = l;
   document.documentElement.dir = t.dir;
   document.title = t.title;
+  $('meta[name="description"]').content = t.desc;
   $$("[data-i18n]").forEach(el => { const v = t[el.dataset.i18n]; if (v != null) el.textContent = v; });
-  $$("[data-i18n-label]").forEach(el => el.setAttribute("aria-label", t[el.dataset.i18nLabel]));
+  $$("[data-i18n-label]").forEach(el => { const v = t[el.dataset.i18nLabel]; if (v != null) el.setAttribute("aria-label", v); });
   /* logo is an SVG mark now */
   $("#skills").innerHTML = t.langs.map(s => `<li>${esc(s)}</li>`).join("");
   $("#skillGroups").innerHTML = SKILL_GROUPS.map(g => `
     <div class="sg"><span class="icon-c"><i class="ph ${g.icon}" aria-hidden="true"></i></span>
-      <div><h3>${esc(g[l])}</h3><ul>${(g.items[l] || g.items).map(s => `<li${g.items[l] ? ' class="loc"' : ""}>${esc(s)}</li>`).join("")}</ul></div></div>`).join("");
+      <div><h3>${esc(g[l])}</h3><ul${g.items[l] ? "" : ' translate="no"'}>${(g.items[l] || g.items).map(s => `<li${g.items[l] ? ' class="loc"' : ""}>${esc(s)}</li>`).join("")}</ul></div></div>`).join("");
+  const SVC_ICONS = ["ph-share-network","ph-shield-check","ph-browsers"];
+  $("#svcGrid").innerHTML = t.svc.map(([h, p], i) => {
+    const hi = i === t.svc.length - 1;
+    return `<article class="svc${hi ? " hi" : ""}">
+      <span class="icon-c"><i class="ph ${SVC_ICONS[i]}" aria-hidden="true"></i></span>
+      <h3>${esc(h)}</h3><p>${esc(p)}</p>
+      ${hi ? `<a class="btn btn-gold btn-sm svc-cta" href="#contact">${esc(t.svc_cta)}</a>` : ""}
+    </article>`;
+  }).join("");
   $("#stats").innerHTML = STATS.map((s, i) => `
     <article class="stat reveal on">
       <span class="icon-c"><i class="ph ${s.icon}" aria-hidden="true"></i></span>
@@ -827,18 +925,17 @@ function render(l){
   $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
   $$("#form .err").forEach(e => e.textContent = "");
   $$("#form [aria-invalid]").forEach(e => e.removeAttribute("aria-invalid"));
-  try { localStorage.setItem("lang", l); } catch(e) {}
 }
 
-let initial = new URLSearchParams(location.search).get("lang");
-if (!T[initial]) { try { initial = localStorage.getItem("lang"); } catch(e) {} }
-render(T[initial] ? initial : "ar");
+render(T[window.__lang] ? window.__lang : "ar");
 
 /* Hovering "View my projects" wakes the network in the logo */
-$$(".btn").forEach(b => {
-  ["mouseenter","focus"].forEach(ev => b.addEventListener(ev, () => document.body.classList.add("net-live")));
-  ["mouseleave","blur"].forEach(ev => b.addEventListener(ev, () => document.body.classList.remove("net-live")));
-});
+/* Delegated so buttons re-rendered on a language switch keep the effect */
+["pointerover","focusin"].forEach(ev => document.addEventListener(ev, e => { if (e.target.closest(".btn")) document.body.classList.add("net-live"); }));
+["pointerout","focusout"].forEach(ev => document.addEventListener(ev, e => {
+  const b = e.target.closest(".btn");
+  if (b && !b.contains(e.relatedTarget)) document.body.classList.remove("net-live");
+}));
 
 /* Typed skills line in the hero */
 (() => {
@@ -869,6 +966,7 @@ function openProject(i){
   $("#pdWhere").textContent = d.where[lang];
   $("#pdPoints").innerHTML = d.points[lang].map(x => `<li>${esc(x)}</li>`).join("");
   $("#pdTags").innerHTML = d.tags.map(x => `<li>${esc(x)}</li>`).join("");
+  const link = $("#pdLink"); link.hidden = p.url === "#"; link.href = p.url;
   if (!pd.open) pd.showModal();
 }
 $("#track").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) openProject(+c.dataset.i); });
@@ -928,7 +1026,7 @@ const setMenu = open => {
 menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
 $$("#mnav a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", e => { if (e.key === "Escape" && document.body.classList.contains("menu-open")) { setMenu(false); menuBtn.focus(); } });
-matchMedia("(min-width:1000px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
+matchMedia("(min-width:1200px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
 
 /* Highlight the nav link of the section on screen */
 const navLinks = $$(".links a");
@@ -936,9 +1034,16 @@ const spy = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   navLinks.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + e.target.id));
 }), { rootMargin: "-45% 0px -50% 0px" });
-["about","skills-sec","work","experience","contact"].forEach(id => spy.observe(document.getElementById(id)));
-$$(".lang button").forEach(b => b.addEventListener("click", () => render(b.dataset.lang)));
+["about","services","skills-sec","work","experience","contact"].forEach(id => spy.observe(document.getElementById(id)));
+$$(".lang button").forEach(b => b.addEventListener("click", () => {
+  const l = b.dataset.lang, url = l === "ar" ? location.pathname : `?lang=${l}`;
+  history.replaceState(null, "", url + location.hash);
+  $("#canon").href = "https://mouadinfra.github.io/" + (l === "ar" ? "" : `?lang=${l}`);
+  try { localStorage.setItem("lang", l); } catch(e) {}  /* a manual choice wins over the device language next time */
+  render(l);
+}));
 $("#year").textContent = new Date().getFullYear();
+
 
 /* Header turns solid as soon as the page leaves the very top */
 const hdr = $("#hdr");
@@ -972,6 +1077,13 @@ $$(".arrow").forEach(b => b.addEventListener("click", () => {
   const sign = document.documentElement.dir === "rtl" ? -1 : 1;
   track.scrollBy({ left: step * +b.dataset.dir * sign, behavior: reduce ? "auto" : "smooth" });
 }));
+
+/* "Request a website" fills in the form subject */
+$("#svcGrid").addEventListener("click", e => {
+  if (!e.target.closest(".svc-cta")) return;
+  const subj = $("#f-subject");
+  if (!subj.value.trim()) subj.value = T[lang].svc_subject;
+});
 
 /* Contact form: validate, then open the mail app */
 $("#form").addEventListener("submit", ev => {
