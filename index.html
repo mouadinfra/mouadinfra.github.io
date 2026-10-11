@@ -145,6 +145,45 @@
   @keyframes orbit{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
   @keyframes core{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.55}}
 
+
+  /* ---------- "Voir mes projets": trembles with an electric charge ---------- */
+  @media (prefers-reduced-motion:no-preference){
+    .btn-net:hover,.btn-net:focus-visible{animation:tremble 1.6s linear infinite,charge 1.6s ease-out infinite}
+  }
+  @keyframes tremble{
+    0%{transform:translate(0,0) rotate(0)}
+    3%{transform:translate(-2px,1px) rotate(-1.2deg)}
+    6%{transform:translate(2px,-1px) rotate(1.2deg)}
+    9%{transform:translate(-2px,-1px) rotate(-.8deg)}
+    12%{transform:translate(2px,1px) rotate(.8deg)}
+    15%{transform:translate(-1px,0) rotate(-.4deg)}
+    18%{transform:translate(1px,0) rotate(.3deg)}
+    21%,100%{transform:translate(0,0) rotate(0)}
+  }
+  @keyframes charge{
+    0%{box-shadow:0 8px 24px rgba(var(--accent-rgb),.25)}
+    6%{box-shadow:0 0 0 3px rgba(143,211,255,.9),0 0 28px 6px rgba(var(--accent-rgb),.75);filter:brightness(1.25)}
+    22%{box-shadow:0 0 0 1px rgba(143,211,255,.35),0 0 18px 2px rgba(var(--accent-rgb),.45);filter:brightness(1.08)}
+    100%{box-shadow:0 8px 24px rgba(var(--accent-rgb),.25);filter:brightness(1.05)}
+  }
+
+  /* ---------- Reading progress (pure CSS, scroll-driven) ---------- */
+  .progress{position:absolute;inset-inline:0;bottom:-1px;height:2px;background:var(--gold-grad);transform-origin:left;transform:scaleX(0);opacity:0;transition:opacity .3s}
+  [dir="rtl"] .progress{transform-origin:right}
+  .scrolled .progress{opacity:1}
+  @supports (animation-timeline:scroll()){
+    .progress{animation:grow linear both;animation-timeline:scroll(root)}
+  }
+  @keyframes grow{to{transform:scaleX(1)}}
+
+  /* ---------- Back to top ---------- */
+  .to-top{position:fixed;inset-inline-end:20px;bottom:20px;z-index:8;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;
+    background:var(--gold-grad);color:#fff;font-size:1.2rem;text-decoration:none;box-shadow:0 10px 26px rgba(var(--accent-rgb),.35);
+    opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s}
+  .scrolled .to-top{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .to-top:hover{transform:translateY(-3px)}
+  .menu-open .to-top{opacity:0;visibility:hidden}
+
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100dvh;display:grid;align-items:center;overflow:hidden;isolation:isolate}
   .hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.55) grayscale(.3)}
@@ -314,6 +353,7 @@
 </svg>
 
 <header id="hdr">
+  <div class="progress" aria-hidden="true"></div>
   <nav class="wrap nav" aria-label="Main">
     <a class="logo" href="#top">
       <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path class="lm-hex" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.6" stroke-linejoin="round"/><path class="lm-orbit" d="M20 2.6 35.4 11.3v17.4L20 37.4 4.6 28.7V11.3Z" pathLength="100" fill="none" stroke="#bfe6ff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="10 90"/><path d="M12 27V14l8 8 8-8v13" fill="none" stroke="url(#lg-m)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-pk" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><path class="lm-pk lm-pk2" d="M12 27V14l8 8 8-8v13" pathLength="100" fill="none" stroke="#eaf7ff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 93"/><circle cx="12" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle cx="28" cy="27" r="2.4" fill="#0f1a26" stroke="url(#lg-m)" stroke-width="1.8"/><circle class="lm-core" cx="20" cy="22" r="2.5" fill="#8fd3ff"/></svg>
@@ -348,6 +388,7 @@
   </ul>
 </div>
 
+<div id="topSentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:24px"></div>
 <main id="main">
   <!-- HERO -->
   <section class="hero" id="top">
@@ -359,7 +400,7 @@
         <h1><span class="h-first" data-i18n="first">اسمك</span><span class="h-last" data-i18n="last">العائلي</span></h1>
         <p class="hero-desc" data-i18n="lead">أصمّم وأبني مواقع وتجارب رقمية أنيقة وسريعة، من الفكرة إلى الإطلاق، بالعربية والفرنسية والإنجليزية.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold btn-net" href="#work" id="netCta"><svg class="mini-net" viewBox="0 0 28 18" aria-hidden="true"><path d="M3 9 14 3l11 6-11 6Z M3 9h22 M14 3v12" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4" stroke-linejoin="round"/><path class="mn-pk" d="M3 9 14 3l11 6" pathLength="100" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 88"/><path class="mn-pk mn-pk2" d="M3 9 14 15l11-6" pathLength="100" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 88"/><circle cx="3" cy="9" r="2.2" fill="currentColor"/><circle cx="14" cy="3" r="2.2" fill="currentColor"/><circle cx="25" cy="9" r="2.2" fill="currentColor"/><circle cx="14" cy="15" r="2.2" fill="currentColor"/><circle class="mn-core" cx="14" cy="9" r="1.8" fill="#fff"/></svg><span data-i18n="work_cta">شاهد أعمالي</span></a>
+          <a class="btn btn-gold btn-net" href="#work" id="netCta"><span data-i18n="work_cta">شاهد أعمالي</span></a>
           <a class="btn btn-line" href="#contact" data-i18n="cta">تواصل معي</a>
         </div>
       </div>
@@ -486,6 +527,7 @@
     <p class="copy">© <span id="year"></span> <span data-i18n="full">اسمك العائلي</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></p>
   </div>
 </footer>
+<a class="to-top" href="#top" data-i18n-label="top" aria-label="العودة للأعلى"><i class="ph ph-arrow-up" aria-hidden="true"></i></a>
 
 <script>
 /* =========================================================
@@ -719,10 +761,10 @@ const spy = new IntersectionObserver(es => es.forEach(e => {
 $$(".lang button").forEach(b => b.addEventListener("click", () => render(b.dataset.lang)));
 $("#year").textContent = new Date().getFullYear();
 
-/* Header turns solid once the hero leaves the top */
+/* Header turns solid as soon as the page leaves the very top */
 const hdr = $("#hdr");
-new IntersectionObserver(([e]) => hdr.classList.toggle("solid", !e.isIntersecting), { rootMargin: "-80px 0px 0px 0px" })
-  .observe($(".hero-inner"));
+new IntersectionObserver(([e]) => { hdr.classList.toggle("solid", !e.isIntersecting); document.body.classList.toggle("scrolled", !e.isIntersecting); })
+  .observe($("#topSentinel"));
 
 /* Reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold: .12 });
