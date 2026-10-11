@@ -202,6 +202,41 @@
   @keyframes blink{50%{opacity:0}}
   .hero-desc{margin-top:22px}
 
+
+  /* ---------- Hero live network ---------- */
+  .net-bg{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none;opacity:.75}
+
+  /* ---------- Project cards as buttons + detail dialog ---------- */
+  button.card{border:0;padding:0;font:inherit;text-align:start;cursor:pointer;width:100%}
+  .card-open{position:absolute;top:16px;inset-inline-end:16px;z-index:2;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+    background:rgba(11,17,24,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:1.1rem;
+    transition:background .3s,transform .4s var(--ease)}
+  .card:hover .card-open,.card:focus-visible .card-open{background:var(--accent-solid);transform:rotate(90deg)}
+  .pd{width:min(640px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line-d);border-radius:var(--r-card);
+    background:var(--dark-2);color:var(--text);overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .pd::backdrop{background:rgba(5,9,14,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  @media (prefers-reduced-motion:no-preference){
+    .pd[open]{animation:pd-in .45s var(--ease)}
+    .pd[open]::backdrop{animation:fade-bg .45s ease}
+  }
+  @keyframes pd-in{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes fade-bg{from{opacity:0}to{opacity:1}}
+  .pd-img{width:100%;aspect-ratio:16/8;object-fit:cover;display:block}
+  .pd-body{padding:26px clamp(20px,4vw,34px) 30px}
+  .pd-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 10px;color:var(--gold);font-size:.88rem;font-weight:500}
+  .pd-dot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6}
+  .pd h3{margin:0 0 16px;font-size:1.45rem;font-weight:700;line-height:1.3}
+  .pd-points{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:10px}
+  .pd-points li{display:grid;grid-template-columns:auto 1fr;gap:10px;color:#cdd8e4;line-height:1.6}
+  .pd-points li::before{content:"";width:8px;height:8px;margin-top:.55em;border-radius:50%;background:var(--gold-grad);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.18)}
+  .pd-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .pd-tags li{font-size:.82rem;font-weight:500;color:#cfdbe8;background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.25);border-radius:8px;padding:5px 11px;direction:ltr}
+  .pd-close{position:absolute;top:14px;inset-inline-end:14px;z-index:1;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);background:rgba(11,17,24,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-size:1.2rem;cursor:pointer}
+  .pd-close:hover{background:var(--accent-solid)}
+  @media (prefers-reduced-motion:no-preference){.pd-close:hover,.pd-close:focus-visible{animation:tremble 1.6s linear infinite,charge-soft 1.6s ease-out infinite}}
+  body:has(.pd[open]){overflow:hidden}
+
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100dvh;display:grid;align-items:center;overflow:hidden;isolation:isolate}
   .hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.55) grayscale(.3)}
@@ -412,6 +447,7 @@
   <section class="hero" id="top">
     <!-- صورة الخلفية: ضع صورة خاصة بك هنا (1920x1080) -->
     <img class="hero-bg" src="https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?auto=format&fit=crop&q=80&w=1920&h=1080" alt="" fetchpriority="high">
+    <canvas class="net-bg" id="netBg" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
       <div class="intro">
         <p class="badge"><i class="ph ph-clock" aria-hidden="true"></i><b>2</b><span data-i18n="years_badge">سنوات من الخبرة</span></p>
@@ -546,6 +582,17 @@
     <p class="copy">© <span id="year"></span> <span data-i18n="full">اسمك العائلي</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></p>
   </div>
 </footer>
+<dialog class="pd" id="pd" aria-labelledby="pd-title">
+  <button type="button" class="pd-close" id="pdClose" data-i18n-label="close" aria-label="إغلاق"><i class="ph ph-x" aria-hidden="true"></i></button>
+  <img class="pd-img" id="pdImg" src="" alt="">
+  <div class="pd-body">
+    <p class="pd-meta"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span id="pdYear"></span><span class="pd-dot"></span><span id="pdWhere"></span></p>
+    <h3 id="pd-title"></h3>
+    <ul class="pd-points" id="pdPoints"></ul>
+    <ul class="pd-tags" id="pdTags"></ul>
+  </div>
+</dialog>
+
 <a class="to-top" href="#top" data-i18n-label="top" aria-label="العودة للأعلى"><i class="ph ph-arrow-up" aria-hidden="true"></i></a>
 
 <script>
@@ -561,7 +608,7 @@ const T = {
     nav_home:"الرئيسية", nav_about:"من أنا", nav_work:"مشاريعي", nav_exp:"المسار", nav_contact:"اتصل",
     cta:"تواصل معي", work_cta:"شاهد مشاريعي",
     typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","IDS/IPS, PKI"],
-    years_badge:"سنوات تكوين في الأنظمة والشبكات", first:"معاذ", last:"أنظمة وشبكات", full:"معاذ", since:"منذ",
+    close:"إغلاق", years_badge:"سنوات تكوين في الأنظمة والشبكات", first:"معاذ", last:"أنظمة وشبكات", full:"معاذ", since:"منذ",
     lead:"تقني متخصص في البنية التحتية الرقمية، خيار الأنظمة والشبكات (OFPPT، 2026). أُدير الخوادم والشبكات وأؤمّن أنظمة المعلومات.",
     about_eb:"قصتي", about_h:"من أنا",
     about_p:"خرّيج ISTA أزيلال (OFPPT) في البنية التحتية الرقمية، خيار الأنظمة والشبكات. أطمح لمتابعة دراستي في سلك Bachelor لتوجيه مساري نحو المعلوميات والذكاء الاصطناعي واستغلال البيانات، معتمدًا على كفاءاتي في الأنظمة والشبكات والسحابة والأمن. جاد، فضولي، مستقل، وأحب العمل ضمن فريق.",
@@ -588,7 +635,7 @@ const T = {
     nav_home:"Accueil", nav_about:"À propos", nav_work:"Projets", nav_exp:"Parcours", nav_contact:"Contact",
     cta:"Me contacter", work_cta:"Voir mes projets",
     typing:["Windows Server 2019","Cisco : VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux : Apache, dhcpd","Cloud & Virtualisation","Sécurité : IDS/IPS, PKI"],
-    years_badge:"ans de formation systèmes et réseaux", first:"Mouad", last:"Systèmes & Réseaux", full:"Mouad", since:"Depuis",
+    close:"Fermer", years_badge:"ans de formation systèmes et réseaux", first:"Mouad", last:"Systèmes & Réseaux", full:"Mouad", since:"Depuis",
     lead:"Technicien Spécialisé en Infrastructure Digitale, option Systèmes & Réseaux (OFPPT, 2026). J'administre serveurs et réseaux et je sécurise les systèmes d'information.",
     about_eb:"Mon histoire", about_h:"À propos de moi",
     about_p:"Diplômé de l'ISTA Azilal (OFPPT) en Infrastructure Digitale, option Systèmes & Réseaux. Je souhaite poursuivre en Bachelor pour orienter mon parcours vers l'informatique, l'intelligence artificielle et l'exploitation des données, en m'appuyant sur mes compétences en systèmes, réseaux, Cloud et sécurité. Sérieux, curieux, autonome, avec le sens du travail en équipe.",
@@ -615,7 +662,7 @@ const T = {
     nav_home:"Home", nav_about:"About", nav_work:"Projects", nav_exp:"Journey", nav_contact:"Contact",
     cta:"Contact me", work_cta:"View my projects",
     typing:["Windows Server 2019","Cisco: VLAN, OSPF, HSRP","Active Directory, DNS, DHCP","Linux: Apache, dhcpd","Cloud & Virtualisation","Security: IDS/IPS, PKI"],
-    years_badge:"years of systems and network training", first:"Mouad", last:"Systems & Networks", full:"Mouad", since:"Since",
+    close:"Close", years_badge:"years of systems and network training", first:"Mouad", last:"Systems & Networks", full:"Mouad", since:"Since",
     lead:"Specialised Technician in Digital Infrastructure, Systems & Networks option (OFPPT, 2026). I manage servers and networks and secure information systems.",
     about_eb:"My story", about_h:"About me",
     about_p:"Graduate of ISTA Azilal (OFPPT) in Digital Infrastructure, Systems & Networks option. I plan to continue with a Bachelor's degree to move toward computer science, artificial intelligence and data, building on my skills in systems, networks, Cloud and security. Serious, curious, autonomous and a good team player.",
@@ -664,6 +711,34 @@ const PROJECTS = [
     ar:["تأمين نظام معلومات","مصلحة الموارد البشرية، المديرية الإقليمية للتعليم بأزيلال"],
     fr:["Sécurisation d'un SI","Service RH, Direction Provinciale de l'Éducation, Azilal"],
     en:["Securing an information system","HR department, Provincial Education Directorate, Azilal"] }
+];
+
+/* تفاصيل المشاريع (من الـ CV) */
+const DETAILS = [
+  { year:"2024 - 2025", tags:["Windows Server 2019","VirtualBox","AD DS","DNS","DHCP","GPO","PowerShell"],
+    where:{ ar:"مختبر افتراضي، ISTA أزيلال", fr:"Lab virtuel, ISTA Azilal", en:"Virtual lab, ISTA Azilal" },
+    points:{
+      ar:["تثبيت وحدة تحكم في النطاق DC01 للنطاق ofppt.local على VirtualBox.","إعداد خدمات AD DS وDNS وDHCP.","تنظيم المستخدمين في وحدات تنظيمية (OU) وتطبيق سياسات المجموعة (GPO).","أتمتة مهام الإدارة بسكريبتات PowerShell."],
+      fr:["Installation du contrôleur de domaine DC01 (ofppt.local) sous VirtualBox.","Configuration des services AD DS, DNS et DHCP.","Organisation des utilisateurs en OUs et application de GPO.","Automatisation des tâches d'administration avec des scripts PowerShell."],
+      en:["Installed the DC01 domain controller (ofppt.local) on VirtualBox.","Configured AD DS, DNS and DHCP services.","Organised users into OUs and applied Group Policies (GPO).","Automated administration tasks with PowerShell scripts."] } },
+  { year:"2024 - 2025", tags:["Cisco","VLAN","Inter-VLAN","OSPF","STP","NAT/PAT"],
+    where:{ ar:"مختبر افتراضي متعدد الأجهزة", fr:"Lab virtuel multi-VMs", en:"Multi-VM virtual lab" },
+    points:{
+      ar:["تصميم شبكة مؤسسة مقسّمة إلى VLAN مع التوجيه بين الـ VLAN.","إعداد التوجيه الديناميكي OSPF وبروتوكول STP لتفادي الحلقات.","ترجمة العناوين NAT/PAT للخروج إلى الإنترنت.","تشخيص الأعطال وحلّها خطوة بخطوة."],
+      fr:["Conception d'un réseau d'entreprise segmenté en VLAN avec routage inter-VLAN.","Mise en place du routage dynamique OSPF et du protocole STP contre les boucles.","Traduction d'adresses NAT/PAT pour l'accès Internet.","Diagnostic et résolution de pannes, étape par étape."],
+      en:["Designed a company network segmented into VLANs with inter-VLAN routing.","Set up OSPF dynamic routing and STP to prevent loops.","Configured NAT/PAT for Internet access.","Diagnosed and fixed faults step by step."] } },
+  { year:"2025", tags:["RHEL/CentOS","dhcpd","Apache (httpd)","VirtualHost","nmcli","systemctl","firewall-cmd"],
+    where:{ ar:"مختبر افتراضي", fr:"Lab virtuel", en:"Virtual lab" },
+    points:{
+      ar:["إعداد خادم DHCP مع حجوزات حسب عنوان MAC.","نشر خادم ويب Apache مع عدة VirtualHost.","إدارة الشبكة والخدمات والجدار الناري بأدوات nmcli وsystemctl وfirewall-cmd."],
+      fr:["Serveur DHCP avec réservations par adresse MAC.","Serveur web Apache avec plusieurs VirtualHost.","Gestion du réseau, des services et du pare-feu avec nmcli, systemctl et firewall-cmd."],
+      en:["DHCP server with MAC-address reservations.","Apache web server with several VirtualHosts.","Managed networking, services and firewall with nmcli, systemctl and firewall-cmd."] } },
+  { year:"2026", tags:["Sécurité des SI","Données sensibles","Analyse des besoins"],
+    where:{ ar:"تدريب نهاية التكوين، المديرية الإقليمية للتربية الوطنية بأزيلال", fr:"Stage, Direction Provinciale de l'Éducation Nationale d'Azilal", en:"Internship, Provincial Directorate of National Education, Azilal" },
+    points:{
+      ar:["تأمين نظام المعلومات لمصلحة الموارد البشرية.","العمل على بيانات حساسة مع احترام قواعد السرية.","مراعاة الحاجيات الفعلية للمستخدمين في الحلول المقترحة."],
+      fr:["Sécurisation du système d'information d'un service RH.","Travail sur des données sensibles dans le respect de la confidentialité.","Prise en compte des besoins réels des utilisateurs dans les solutions proposées."],
+      en:["Secured the information system of an HR department.","Worked with sensitive data while respecting confidentiality.","Took real user needs into account in the proposed solutions."] } }
 ];
 
 const EXPERIENCE = [
@@ -738,11 +813,13 @@ function render(l){
       <span class="stat-num" data-to="${s.value}" data-prefix="${s.prefix}" data-suffix="${s.suffix}">${s.prefix}${fmt(s.value, dec(s.value))}${s.suffix}</span>
       <h3>${esc(t.stats[i][0])}</h3><p>${esc(t.stats[i][1])}</p>
     </article>`).join("");
-  $("#track").innerHTML = PROJECTS.map(p => `
-    <a class="card" href="${esc(p.url)}">
+  $("#track").innerHTML = PROJECTS.map((p, i) => `
+    <button type="button" class="card" data-i="${i}" aria-haspopup="dialog">
       <img src="${esc(p.img)}" alt="" loading="lazy" width="600" height="800">
+      <span class="card-open" aria-hidden="true"><i class="ph ph-plus"></i></span>
       <div class="card-body"><h3>${esc(p[l][0])}</h3><p>${esc(p[l][1])}</p></div>
-    </a>`).join("");
+    </button>`).join("");
+  if ($("#pd").open) openProject(+$("#pd").dataset.i);
   $("#timeline").innerHTML = EXPERIENCE.map(e => `
     <li><time>${esc(e.when)}</time><h3>${esc(e[l][0])}</h3><p>${esc(e[l][1])}</p></li>`).join("");
   $("#certs").innerHTML = CERTS.map(c => `
@@ -779,6 +856,67 @@ $$(".btn").forEach(b => {
   };
   tick();
   $$(".lang button").forEach(b => b.addEventListener("click", () => { clearTimeout(timer); w = 0; i = 0; del = false; tick(); }));
+})();
+
+/* Project detail dialog */
+const pd = $("#pd");
+function openProject(i){
+  const p = PROJECTS[i], d = DETAILS[i];
+  pd.dataset.i = i;
+  $("#pdImg").src = p.img.replace("w=600&h=800", "w=1200&h=600");
+  $("#pd-title").textContent = p[lang][0];
+  $("#pdYear").textContent = d.year;
+  $("#pdWhere").textContent = d.where[lang];
+  $("#pdPoints").innerHTML = d.points[lang].map(x => `<li>${esc(x)}</li>`).join("");
+  $("#pdTags").innerHTML = d.tags.map(x => `<li>${esc(x)}</li>`).join("");
+  if (!pd.open) pd.showModal();
+}
+$("#track").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) openProject(+c.dataset.i); });
+$("#pdClose").addEventListener("click", () => pd.close());
+pd.addEventListener("click", e => { if (e.target === pd) pd.close(); });
+
+/* Live network behind the hero: drifting nodes, links light up near the cursor */
+(() => {
+  const cv = $("#netBg"), ctx = cv.getContext("2d"), hero = $(".hero");
+  let W = 0, H = 0, nodes = [], mouse = null, running = false, raf;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const size = () => {
+    W = hero.clientWidth; H = hero.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.min(90, Math.round(W * H / 17000));
+    nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 }));
+  };
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    const boost = document.body.classList.contains("net-live") ? 1.9 : 1, R = 135;
+    for (const p of nodes) {
+      p.x += p.vx * boost; p.y += p.vy * boost;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+        if (d < R) { ctx.strokeStyle = `rgba(143,211,255,${(1 - d / R) * .32 * boost})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      }
+      if (mouse) {
+        const d = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+        if (d < 180) { ctx.strokeStyle = `rgba(77,163,255,${(1 - d / 180) * .7})`; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+      }
+      ctx.fillStyle = `rgba(191,230,255,${.55 * Math.min(boost, 1.5)})`;
+      ctx.beginPath(); ctx.arc(a.x, a.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    }
+  };
+  const loop = () => { draw(); raf = requestAnimationFrame(loop); };
+  const start = () => { if (!running && !reduce) { running = true; loop(); } };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+  size(); draw();
+  new ResizeObserver(() => { size(); draw(); }).observe(hero);
+  new IntersectionObserver(([e]) => e.isIntersecting ? start() : stop()).observe(hero);
+  document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+  hero.addEventListener("pointermove", e => { const r = hero.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
+  hero.addEventListener("pointerleave", () => mouse = null);
 })();
 
 /* Mobile menu */
